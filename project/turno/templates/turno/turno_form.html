@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{# BUSCA EL SUFIJO FORM, que es lo mismo que create #}
+
+{% block titulo %}
+    {% if form.instance.pk %}
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Turnos: Editar Turno</h1>
+        </div>
+    {% else %}
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Turnos: Creacíon de Turno</h1>
+        </div>
+    {% endif %}
+ 
+{% endblock titulo %}
+
+{% block contenido %}
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn btn-primary ">Guardar</button>
+</form>
+<div class="fs-3 pb-4">
+    <a href="{% url 'turno:home' %}">Volver</a>
+</div>
+
+{% endblock contenido %}

@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Turnos</h1>
+</div> 
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <h3 class="pb-lg-3">Lugares de Turnos</h3>
+
+    <div class="container-fluid p-4">    
+        
+        <div>
+            <a href="{% url 'turno:turnolugar_create' %}">Crear Lugar de Turno</a>
+        </div>
+        <div>
+            <a href="{% url 'turno:turnolugar_list' %}">Listar Lugar de Turno</a>
+        </div>
+        <div>
+            <a href="{% url 'turno:home' %}">Volver a Turnos</a>
+        </div>
+
+        <h3 class="pb-lg-3">Turnos</h3>
+
+        <div>
+            <a href="{% url 'turno:turno_create' %}">Crear Turnos</a>
+        </div>
+        <div>
+            <a href="{% url 'turno:turno_list' %}">Listar Turnos</a>
+        </div>
+            
+            <a href="{% url 'core:home' %}">Volver al Inicio</a>
+    </div>
+
+{% endblock contenido %}

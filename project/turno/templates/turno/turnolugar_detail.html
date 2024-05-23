@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Turnos: Detalle de Lugares de Turnos</h1>
+</div> 
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <div class="container-fluid p-4">    
+
+        <ul>
+            {% comment  %}
+                <li>Nombre: {{ turno.nombre }}</li>
+                <li>Descripcion: {{ turno.descripcion }}</li>
+            {% endcomment %}
+            <li>Nombre: {{ object.nombre }}</li>
+            <li>Descripcion: {{ object.descripcion }}</li>    
+        </ul>
+            
+        <a href="{% url 'turno:turnolugar_list' %}">Volver</a>
+    </div>
+
+{% endblock contenido %}

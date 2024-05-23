@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{# BUSCA EL SUFIJO confirm_delete, que es lo mismo que delete #}
+
+{% block titulo %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Turnos: Borrar un Lugar</h1>
+</div> 
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <p class=" fs-5 fst-italic ">¿Confirma eliminar "{{ object.nombre }}?"</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+    </form>
+    <div class="fs-3 pb-4 ">
+        <a href="{% url 'turno:turnolugar_list' %}">Volver</a>
+    </div>
+
+{% endblock contenido %}

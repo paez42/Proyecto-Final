@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Turnos: Lista de Lugar</h1>
+</div> 
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <div class="container-fluid p-4">    
+
+
+        <div class="py-lg-4 ">
+            <form action="{% url 'turno:turnolugar_list' %}" method="get">
+                <input type="text" name="consulta" placeholder="Buscar...">
+            </form>
+        </div>
+
+        {% comment  %}
+            {% for turno in turnos %}        
+            {% endfor %}
+        {% endcomment %}
+        {% for turno in object_list %}
+            <li>
+                {{ turno.nombre }}
+                <a href="{% url 'turno:turnocategoria_detail' turno.id %}">Detalle</a>
+                <a href="{% url 'turno:turnocategoria_update' turno.id %}">Editar</a>
+                <a href="{% url 'turno:turnocategoria_delete' turno.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+
+            <a href="{% url 'core:home' %}">Volver al Inicio</a>
+    </div>
+
+{% endblock contenido %}

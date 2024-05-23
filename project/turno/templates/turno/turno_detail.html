@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Turnos: Detalle de Turnos</h1>
+</div> 
+{% endblock titulo %}
+
+{% block contenido %}
+
+    <div class="container-fluid p-4">    
+
+        <ul>
+            <li>Nombre: {{ object.nombre }}</li>
+               
+        </ul>
+            
+        <a href="{% url 'turno:turno_list' %}">Volver</a>
+    </div>
+
+{% endblock contenido %}
