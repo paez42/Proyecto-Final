@@ -1,93 +1,50 @@
 {% extends 'core/base.html' %}
-
 {% load static %}
 
 {% block titulo %}
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Mi Negocio</h1>
-</div>
 {% endblock titulo %}
 
 {% block contenido %}
-
     {% if user.is_authenticated %}
         {{ mensaje }}
-        <p class="fs-2">Bienvenido {{ user.username }}</p>
     {% endif %}
 
     <main>
-        <div class="container-fluid px-4">
-            <h1 class="mt-4">Dashboard</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
+        <div class="container-fluid p-4">
+            <!-- Imagen con texto y botón -->
             <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary text-white mb-4">
-                        <div class="card-body">Primary Card</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-warning text-white mb-4">
-                        <div class="card-body">Warning Card</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-success text-white mb-4">
-                        <div class="card-body">Success Card</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-danger text-white mb-4">
-                        <div class="card-body">Danger Card</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="#">View Details</a>
-                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                        </div>
+                <div class="col-md-12">
+                    <img src="{% static 'core/img/fondo.jpg' %}" class="img-fluid w-100" alt="Imagen de Fondo" style="position: absolute; z-index: -1; top: 0; left: 0; height:100%;">
+                    <div class="text-white text-center p-4" style="z-index: 1; top: 50%; left: 50%; background-color: rgba(0, 0, 0, 0.5);">
+                        <h2>Nostra Padel</h2>
+                        <p>Sitio donde podrás encontrar turnos en tiempo real, agendar y contactarte con las canchas!!!</p>
+                        <p>Contactanos</p>
+                        <a href="https://wa.me/3537325637" target="_blank" class="btn btn-primary">Ir a WhatsApp</a>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
-                            Area Chart Example
+
+            <!-- Cards -->
+            <div class="row mt-4">
+                {% for turno in turnos %}
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card bg-success   text-white mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ turno.object }}</h5>
+                                <p class="card-text">Lugar: {{ turno.categoria_id }}</p>
+                                <p class="card-text">Cancha: {{ turno.unidad_medida }}</p>
+                                <p class="card-text">Precio: {{ turno.precio }}</p>
+                                <p class="card-text">Precio: {{ turno.descripcion }}</p>
+                                
+                            </div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <a class="btn btn-light stretched-link" href="{% url 'turno:turno_detail' turno.pk %}">Ver Detalles</a>
+                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                            </div>
                         </div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                     </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Bar Chart Example
-                        </div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    DataTable Example
-                </div>
-                <div class="card-body">
-                </div>
+                {% endfor %}
             </div>
         </div>
     </main>
-
 {% endblock contenido %}

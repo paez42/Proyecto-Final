@@ -15,3 +15,5 @@ class TurnoForm(forms.ModelForm):
     class Meta:
         model = models.Turno
         fields = "__all__"       
+        
+

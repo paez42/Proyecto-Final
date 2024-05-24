@@ -4,10 +4,12 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 from .forms import CustomAuthenticationForm, CustomUserCreationForm
+from turno.models import Turno 
 
 #@login_required
 def home(request):
-    return render(request,"core/index.html")
+    turnos = Turno.objects.all()  # Obtenemos todos los turnos
+    return render(request, "core/index.html", {'turnos': turnos})
 
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm

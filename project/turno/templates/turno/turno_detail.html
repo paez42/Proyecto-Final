@@ -2,20 +2,28 @@
 
 {% block titulo %}
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Turnos: Detalle de Turnos</h1>
+    <h1 class="mt-4">Detalle de Turno</h1>
 </div> 
 {% endblock titulo %}
 
 {% block contenido %}
 
-    <div class="container-fluid p-4">    
+<div class="container-fluid p-4">    
 
-        <ul>
-            <li>Nombre: {{ object.nombre }}</li>
-               
-        </ul>
-            
-        <a href="{% url 'turno:turno_list' %}">Volver</a>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Detalle del Turno</h5>
+            <ul class="list-group">
+                <li class="list-group-item">Nombre: {{ object.nombre }}</li>
+                <li class="list-group-item">Cancha: {{ object.unidad_medida }}</li>
+                <li class="list-group-item">Personas: {{ object.cantidad }}</li>
+                <li class="list-group-item">Precio: {{ object.precio }}</li>
+                <li class="list-group-item">Jugadores: {{ object.descripcion }}</li>
+            </ul>
+        </div>
     </div>
+
+    <a href="{% url 'turno:turno_list' %}" class="btn btn-secondary mt-3">Volver</a>
+</div>
 
 {% endblock contenido %}

@@ -6,10 +6,12 @@ from django.urls import reverse_lazy
 from django.db.models.query import QuerySet
 
 from . import forms, models
+from .models import Turno
 
 
-def home(request):    
-    return render(request,"turno/index.html")
+def home(request):
+    turnos = Turno.objects.all()    
+    return render(request,"turno/index.html", {'turnos': turnos})
 
 # ********  TURNO LUGAR *************************
 
