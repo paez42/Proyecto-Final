@@ -17,3 +17,9 @@ Conclusión
 En resumen, el proyecto final de Django fue una experiencia increíble que me permitió crecer como desarrollador, explorar nuevas tecnologías y enfrentar desafíos emocionantes. Estoy agradecido por esta oportunidad y emocionado por seguir aprendiendo y creciendo en mi carrera como desarrollador web.
 
 ¡Gracias por ser parte de mi viaje de aprendizaje en el mundo del desarrollo web con Django y CoderHouse!
+
+
+Link del video
+
+
+https://drive.google.com/file/d/1mrHZNul_qNMZMZvG0UpobQDFBVbRNYPf/view?usp=sharing
